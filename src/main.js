@@ -13,7 +13,6 @@ bot.command('start', (ctx) => {
 
 bot.on(message('text'), async (ctx) => {
   await chatGPT(ctx.message.text)
-  ctx.reply('test')
 })
 
 bot.launch();
