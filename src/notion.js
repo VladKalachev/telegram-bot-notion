@@ -26,5 +26,24 @@ export async function create(short, text) {
   }
  })
 
- return response
+ await notion.blocks.children.append({
+  block_id: response.id,
+  children: [
+    {
+      object: 'block',
+      type: 'paragraph',
+      paragraph: {
+        rich_text: [
+          {
+            type: 'text',
+            content: text,
+          }
+        ]
+      }
+    }
+  ]
+})
+
+ return response;
 }
+
